@@ -1,0 +1,13 @@
+Here is a note page for things that are and arent finished!
+We can add things like a checklist of TODOs and mark them 
+off as we go so we can see where we're at!
+
+- we can delete this once we're done
+
+PROJECT PLAN
+
+
+- = todo/inprogress 
+x = finished
+TODOS
+-plan project
