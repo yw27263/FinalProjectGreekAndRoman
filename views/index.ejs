@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skeleton</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Send A Message!</h1>
+    <form action="/send" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" class="txt">
+        <br>
+        <label for="message">Message:</label>
+        <input type="text" name="message" class="txt">
+        <br>
+        <input type="submit" id="submit">
+    </form>
+
+    <h1>Sent Message:</h1>
+    <h2><%= message %></h2>
+    <h3>From <%= name %></h3>
+
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Message</th>
+        </thead>
+        <tbody>
+            <% messages.forEach(c => { %>
+                <tr>
+                  <td>
+                    <%= c.name %>
+                  </td>
+                  <td><%= c.message %></td>
+                  <td class="right">
+                    <a class="link" href="/<%= c._id %>/edit">Edit</a>
+                    <form action="/<%= c._id %>/delete" method="post" class="inline">
+                      <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+</body>
+</html>

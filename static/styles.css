@@ -1,0 +1,99 @@
+/* Base page */
+body {
+    background-color: cadetblue;
+    color: rgb(115, 15, 15);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 1rem;
+}
+
+/* Headings */
+h1, h2, h3 {
+    margin: 0.5rem 0;
+}
+
+/* Form layout */
+form {
+    margin: 1.5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Input fields */
+.txt {
+    border-radius: 20px;
+    border: none;
+    font-family: inherit;
+    color: blue;
+    width: 12rem;
+    padding: 0.5rem;
+    height: auto;
+    text-align: center;
+}
+
+/* Submit button */
+#submit {
+    color: rgb(9, 40, 68);
+    font-family: inherit;
+    height: 2.2rem;
+    width: 5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+/* Button hover = slightly unhinged */
+#submit:hover {
+    transform: scale(1.1);
+    background-color: rgb(180, 220, 220);
+}
+
+/* Table styling */
+table {
+    margin: 2rem auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td {
+    padding: 0.5rem;
+    border-bottom: 2px solid rgb(115, 15, 15);
+}
+
+/* Links */
+.link {
+    color: rgb(9, 40, 68);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Buttons inside table */
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-danger {
+    background-color: rgb(115, 15, 15);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: rgb(160, 30, 30);
+}
+
+/* Inline form for delete */
+.inline {
+    display: inline;
+}
