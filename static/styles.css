@@ -1,7 +1,7 @@
 /* Base page */
 body {
-    background-color: cadetblue;
-    color: rgb(115, 15, 15);
+    background-color: rgb(215, 241, 231);
+    color: rgb(6, 51, 10);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     font-size: 1.8rem;
@@ -23,12 +23,14 @@ form {
     gap: 0.8rem;
 }
 
+
+
 /* Input fields */
 .txt {
     border-radius: 20px;
     border: none;
     font-family: inherit;
-    color: blue;
+    color: green;
     width: 12rem;
     padding: 0.5rem;
     height: auto;
@@ -62,7 +64,7 @@ table {
 
 td {
     padding: 0.5rem;
-    border-bottom: 2px solid rgb(115, 15, 15);
+    border-bottom: 2px solid rgb(15, 115, 42);
 }
 
 /* Links */
@@ -85,15 +87,16 @@ td {
 }
 
 .btn-danger {
-    background-color: rgb(115, 15, 15);
+    background-color: rgb(15, 115, 53);
     color: white;
 }
 
 .btn-danger:hover {
-    background-color: rgb(160, 30, 30);
+    background-color: rgb(30, 160, 71);
 }
 
 /* Inline form for delete */
 .inline {
     display: inline;
 }
+
