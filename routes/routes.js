@@ -1,13 +1,13 @@
 import express from 'express';
 
-import { loadPage, send, edit, messagePage, del } from '../controllers/messageControllers.js';
+import { loadPage, addPoint, edit, messagePage, del } from '../controllers/pointControllers.js';
 
 export const router = express.Router();
 
 //write a route
 router.get("/", loadPage);
 
-router.post("/send", send);
+router.post("/", addPoint);
 
 //edit
 router.get('/:id/edit', edit);

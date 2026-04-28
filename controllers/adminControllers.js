@@ -1,27 +1,16 @@
-import Point from '../models/Point.js';
+import Message from '../models/Message.js';
 
 export const loadPage = async (req, res)=> {
     try {
-        const points = await Point.find();
-        let greekPoints = 0;
-        let romanPoints = 0;
-        points.forEach(p => {
-         if (p.team === "greek"){
-            greekPoints += p.pointNum;
-         }   
-         else if (p.team === "roman") {
-            romanPoints += p.pointNum;
-         }
-        });
+        const messages = await Message.find().sort({ createdAt: -1 });
 
-        //res.json(greekPoints,romanPoints);
-
-        res.render('student', {
-            title: "Greek and Roman Points!",
-            greekPoints,
-            romanPoints,
+        res.render('index', {
+            title: "Skeleton",
+            message:"Hello World",
+            name: "bob",
+            messages,
             summary: {
-                total: points.length
+                total: messages.length
             }
         });
     } catch (error) {
@@ -30,23 +19,33 @@ export const loadPage = async (req, res)=> {
     }
 };
 
-export const addPoint = async (req, res)=> {
+export const send = async (req, res)=> {
     try {
-        const { pointNum, reason, team } = req.body;
+        const { message, name } = req.body;
 
-        if (!pointNum || !reason || !team) {
-            const points = await point.find().sort({ createdAt: -1 });
-            return res.render('student', {
+        if (!name || !message) {
+            const messages = await Message.find().sort({ createdAt: -1 });
+            return res.render('index', {
                 title: "U suck",
-                points
+                message: "Pls fill out fields",
+                name: "the almighty",
+                messages
             });
         }
 
-        await Point.create({ pointNum, reason, team });
+        await Message.create({ message, name });
 
-        const points = await Point.find();
+        const messages = await Message.find();
 
-        res.redirect('/');
+        res.render('index', {
+            title: "Skeleton",
+            message,
+            name,
+            messages,
+            summary: {
+                total: messages.length
+            }
+        });
 
     } catch (error) {
         console.error("Error sending message", error);
