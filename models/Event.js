@@ -1,19 +1,19 @@
 import mongoose from "mongoose";
 
-const messageSchema = new mongoose.Schema({
+const eventSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    message: {
+    description: {
         type: String,
         required: true
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    date: {
+        type: String,
+        required: true
     }
 });
 
-const Message = mongoose.model("Message", messageSchema);
-export default Message; 
+const Event = mongoose.model("Event", eventSchema);
+export default Event; 
