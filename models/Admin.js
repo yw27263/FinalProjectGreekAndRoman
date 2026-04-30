@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const messageSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -15,5 +15,5 @@ const messageSchema = new mongoose.Schema({
     }
 });
 
-const Message = mongoose.model("Message", messageSchema);
-export default Message; 
+const Admin = mongoose.model("Admin", adminSchema);
+export default Admin; 
