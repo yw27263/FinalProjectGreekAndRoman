@@ -26,45 +26,62 @@ export const loadPage = async (req, res)=> {
         });
     } catch (error) {
         console.error("Error loading", error);
-        res.status(500).send("Fix urself");
+        res.status(500).send("page not loading");
     }
 };
 
 export const addPoint = async (req, res)=> {
     try {
-        const { pointNum, reason, team } = req.body;
+        let { pointNum, message, team } = req.body;
 
-        if (!pointNum || !reason || !team) {
-            const points = await point.find().sort({ createdAt: -1 });
-            return res.render('student', {
-                title: "U suck",
-                points
-            });
+        const points = await Point.find().sort({ createdAt: -1 });
+
+        if (!pointNum || !message || !team) {
+            console.log(pointNum, message, team);
+            return res.send(pointNum, message, team);
         }
 
-        await Point.create({ pointNum, reason, team });
+        pointNum = parseInt(pointNum);
 
-        const points = await Point.find();
+        await Point.create({ pointNum, message, team });
 
-        res.redirect('/');
+        let greekPoints = 0;
+        let romanPoints = 0;
+        points.forEach(p => {
+         if (p.team === "greek"){
+            greekPoints += p.pointNum;
+         }   
+         else if (p.team === "roman") {
+            romanPoints += p.pointNum;
+         }
+        });
+
+        res.render('student', {
+            title: "Greek and Roman Points!",
+            greekPoints,
+            romanPoints,
+            summary: {
+                total: points.length
+            }
+        });
 
     } catch (error) {
         console.error("Error sending message", error);
-        res.status(500).send("Fix urself");
+        res.status(500).send("the point is not pointing");
     }
 };
 
 export const edit = async (req,res,next) => {
   try {
-    const message = await Message.findById(req.params.id);
+    const point = await Point.findById(req.params.id);
 
-    if(!message) {
-      return res.status(404).send('Message not found');
+    if(!point) {
+      return res.status(404).send('Point not found');
     }
 
     res.render('edit', {
         title: "edit",
-        message
+        point
     });
 
   } catch (err) {
@@ -72,13 +89,14 @@ export const edit = async (req,res,next) => {
   }
 };
 
-export const messagePage = async (req, res, next) => {
+export const pointPage = async (req, res, next) => {
   try {
-    const { name, message } = req.body;
+    const { pointNum, message, team } = req.body;
 
-    await Message.findByIdAndUpdate(req.params.id, {
-      name,
-      message
+    await Point.findByIdAndUpdate(req.params.id, {
+      pointNum,
+      message,
+      team
     });
 
     res.redirect('/');
@@ -89,7 +107,7 @@ export const messagePage = async (req, res, next) => {
 
 export const del = async (req,res,next) => {
   try {
-    await Message.findByIdAndDelete(req.params.id);
+    await Point.findByIdAndDelete(req.params.id);
 
     res.redirect('/');
 

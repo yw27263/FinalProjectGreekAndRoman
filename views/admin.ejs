@@ -22,20 +22,21 @@
                 <h3>GREEK POINTS</h3>
                 <h3>ROMAN POINTS</h3>
             </div>
-            <form action="/send" method="POST">
-                <label for="points">Amount of points you wish to add:</label>
-                <input type="text" name="points" class="txt">
+            <form action="/addPoint" method="POST">
+                <label for="pointNum">Amount of points you wish to add:</label>
+                <input type="text" name="pointNum" class="txt">
                 <br>
-                <label for="message">Message:</label>
+                <label for="message">Reason for Points:</label>
                 <input type="text" name="message" class="txt">
                 <br>
+                
                 <legend>Greek or roman points?:</legend>
-                    <label for="greek">
-                    <input type="checkbox" id="greek" name="greek" value="greek"> Greeks
+                    <label for="team">
+                    <input type="radio" id="greek" name="team" value="greek"> Greeks
                     </label>
                     <br>
-                    <label for="roman">
-                    <input type="checkbox" id="roman" name="roman" value="roman" checked> Romans
+                    <label for="team">
+                    <input type="radio" id="roman" name="team" value="roman" checked> Romans
                     </label>
                     <br>
                 <br>

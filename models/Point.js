@@ -5,7 +5,7 @@ const pointSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    reason: {
+    message: {
         type: String,
         required: true
     },
