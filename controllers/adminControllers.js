@@ -1,99 +1,32 @@
-import Message from '../models/Message.js';
+import Admin from '../models/Admin.js';
+import Point from '../models/Point.js';
 
-export const loadPage = async (req, res)=> {
+export const adminEnter = async (req, res)=> {
     try {
-        const messages = await Message.find().sort({ createdAt: -1 });
+        const points = await Point.find();
+        let greekPoints = 0;
+        let romanPoints = 0;
+        points.forEach(p => {
+         if (p.team === "greek"){
+            greekPoints += p.pointNum;
+         }   
+         else if (p.team === "roman") {
+            romanPoints += p.pointNum;
+         }
+        });
 
-        res.render('index', {
-            title: "Skeleton",
-            message:"Hello World",
-            name: "bob",
-            messages,
+        //res.json(greekPoints,romanPoints);
+
+        res.render('admin', {
+            title: "Greek and Roman Points!",
+            greekPoints,
+            romanPoints,
             summary: {
-                total: messages.length
+                total: points.length
             }
         });
     } catch (error) {
         console.error("Error loading", error);
         res.status(500).send("Fix urself");
     }
-};
-
-export const send = async (req, res)=> {
-    try {
-        const { message, name } = req.body;
-
-        if (!name || !message) {
-            const messages = await Message.find().sort({ createdAt: -1 });
-            return res.render('index', {
-                title: "U suck",
-                message: "Pls fill out fields",
-                name: "the almighty",
-                messages
-            });
-        }
-
-        await Message.create({ message, name });
-
-        const messages = await Message.find();
-
-        res.render('index', {
-            title: "Skeleton",
-            message,
-            name,
-            messages,
-            summary: {
-                total: messages.length
-            }
-        });
-
-    } catch (error) {
-        console.error("Error sending message", error);
-        res.status(500).send("Fix urself");
-    }
-};
-
-export const edit = async (req,res,next) => {
-  try {
-    const message = await Message.findById(req.params.id);
-
-    if(!message) {
-      return res.status(404).send('Message not found');
-    }
-
-    res.render('edit', {
-        title: "edit",
-        message
-    });
-
-  } catch (err) {
-    next(err)
-  }
-};
-
-export const messagePage = async (req, res, next) => {
-  try {
-    const { name, message } = req.body;
-
-    await Message.findByIdAndUpdate(req.params.id, {
-      name,
-      message
-    });
-
-    res.redirect('/');
-  } catch (err) {
-    next(err);
-  }
-};
-
-export const del = async (req,res,next) => {
-  try {
-    await Message.findByIdAndDelete(req.params.id);
-
-    res.redirect('/');
-
-  } catch (err) {
-    next(err)
-  }
-
 };

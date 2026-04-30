@@ -1,6 +1,7 @@
 import express from 'express';
 
 import { loadPage, addPoint, edit, messagePage, del } from '../controllers/pointControllers.js';
+import { adminEnter } from '../controllers/adminControllers.js';
 
 export const router = express.Router();
 
@@ -9,6 +10,7 @@ router.get("/", loadPage);
 
 router.post("/", addPoint);
 
+router.get('/adminEnter', adminEnter);
 //edit
 router.get('/:id/edit', edit);
 
