@@ -49,6 +49,20 @@ h1{
 h1, h2, h3 {
     margin: 4px;
 }
+
+.sectionEvent {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: double rgb(0, 84, 0) 3px;
+    background-color:rgb(211, 255, 211);
+    padding:5px;
+}
+
+.section2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .section1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -124,11 +138,11 @@ table {
     border-collapse: collapse;
     width: 80%;
 }
-
-td {
+th,tr,td {
     padding: 0.5rem;
-    border-bottom: 2px solid rgb(15, 115, 42);
+    border: 2px solid rgb(15, 115, 42);
 }
+
 
 /* Links */
 .link {
@@ -169,7 +183,7 @@ a{
     background-color: oldlace;
     border: 3px solid green;
     border-radius: 5px;
-    padding:2px;
+    padding:7px;
 }
 
 a:hover{
@@ -192,6 +206,9 @@ body {
     margin: 0;
     padding: 1rem;
     font-size:30px;
+}
+.section2 {
+    grid-template-columns: 1fr;
 }
 
 main{

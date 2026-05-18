@@ -26,7 +26,7 @@ app.use(session({
   saveUninitialized: false,
   // For testing: expire session cookies after 10 seconds
   cookie: {
-    maxAge: 10000
+    maxAge: 100000
   }
 }));
 

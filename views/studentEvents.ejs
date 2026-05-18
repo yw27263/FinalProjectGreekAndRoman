@@ -11,18 +11,18 @@
      <a href="/">Back to Student Page</a>
     <h2>Current Events</h2>
 
-    <ul class="event-list">
+    <section class="event-list">
         <% if (events && events.length > 0) { %>
             <% events.forEach(event => { %>
-            <li class="event-item">
-                <strong><%= event.name %></strong> — <%= event.message %>
-                <em>(<%= event.date %>)</em>
+            <li class="sectionEvent">
+                <h3><strong><%= event.name %> </strong> <em>~ (<%= event.date %>)</em></h3>
+                </h2><%= event.message %></h2>
             </li>
             <% }) %>
         <% } else { %>
             <li class="no-events-message">No events currently!</li>
         <% } %>
-    </ul>
+    </section>
     </main>
 </body>
 </html>
