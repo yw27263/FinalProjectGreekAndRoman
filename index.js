@@ -24,6 +24,10 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'dev-secret',
   resave: false,
   saveUninitialized: false,
+  // For testing: expire session cookies after 10 seconds
+  cookie: {
+    maxAge: 10000
+  }
 }));
 
 // Routes

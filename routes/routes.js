@@ -12,15 +12,15 @@ router.get("/", loadPage);
 
 //event pages
 router.get('/events', loadEvents);
-router.get('/adminEvents', adminEvents);
+router.get('/adminEvents', requireAuth, adminEvents);
 router.get('/studentEvents', studentEvents);
-router.post('/addEvents', addEvent);
-router.post('/deleteEvent/:id', deleteEvent);
+router.post('/addEvents', requireAuth, addEvent);
+router.post('/deleteEvent/:id', requireAuth, deleteEvent);
 
 //admin login pages
 router.get("/login", login);
 router.post('/adminEnter', adminEnter);
-router.get('/adminLoad', adminLoad);
+router.get('/adminLoad', requireAuth, adminLoad);
 router.get('/editEnter', requireAuth, editEnter);
 
 

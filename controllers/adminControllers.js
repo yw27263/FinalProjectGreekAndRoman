@@ -9,7 +9,9 @@ export const adminEnter = async (req, res)=> {
             return res.send("Please enter key");
         }
 
-        if(key === "bobTheSled") {
+        if(key === process.env.ADMIN_KEY) {
+            // mark session as logged-in before redirecting to protected admin page
+            req.session.userId = process.env.ADMIN_KEY;
             res.redirect('/adminLoad')
         }
         else{
@@ -24,7 +26,7 @@ export const adminEnter = async (req, res)=> {
 
 export const adminLoad = async (req, res) => {
     try {
-        req.session.userId = "bobTheSled";
+        req.session.userId = process.env.ADMIN_KEY;
         const points = await Point.find();
         let greekPoints = 0;
         let romanPoints = 0;
