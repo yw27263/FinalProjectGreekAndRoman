@@ -59,8 +59,14 @@ h1, h2, h3 {
 }
 
 .section2 {
+    background-image: url(greekAndRoman.png);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+#GRimg{
+    background-image: url(greekAndRoman.png);
+    width:100%;
 }
 
 .section1 {
@@ -131,6 +137,7 @@ form {
     color: rgb(98, 154, 14);
     background-color: rgb(209, 245, 221);
 }
+
 
 /* Table styling */
 table {
@@ -210,6 +217,7 @@ body {
 .section2 {
     grid-template-columns: 1fr;
 }
+
 
 main{
     width: 70vw;
