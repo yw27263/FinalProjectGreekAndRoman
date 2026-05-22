@@ -61,16 +61,34 @@ h1, h2, h3 {
 .section2 {
     background-image: url(greekAndRoman.png);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    position:relative;
+    bottom: 470px;
+    width:300px;
+    margin:auto;
+    opacity: 89%;
 }
 
 #GRimg{
     background-image: url('greekAndRoman.png');
     width: 100%;
-    height: 400px;             
+    height: 600px;             
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    position:relative;
+    bottom:150px
+}
+
+.mainGoofy{
+    opacity: 75%;
+    width: 1000px;
+    margin:10vh auto auto auto;
+    padding:20px;
+    background-color: rgb(199, 230, 205);
+    border-radius: 20px;
+    border: green double 20px;
+    height: 789px;
 }
 
 .section1 {
