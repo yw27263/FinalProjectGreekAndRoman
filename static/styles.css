@@ -72,6 +72,7 @@ h1, h2, h3 {
 .section2 {
     display: grid;
     grid-template-columns: 1fr;
+
     width:300px;
     margin:auto;
     opacity: 89%;
@@ -281,6 +282,15 @@ body {
     margin:auto;
     opacity: 89%;
 }
+.section2s {
+    display: grid;
+    grid-template-columns: 1fr;
+    position:relative;
+    top:-10px;
+    width:100%;
+    margin:auto;
+    opacity: 89%;
+}
 #GRimg{
     background-image: url('greekAndRomanMobile.png');
     width: 100%;
@@ -329,11 +339,10 @@ h1{
     border: 3px solid green;
     border-radius: 5px;
     padding:7px;
-    font-size:inherit;
-    font-family: Quint;
+    width:240px;
 }
 .as:hover{
-    color: rgb(98, 154, 14);
+     color: rgb(98, 154, 14);
     background-color: rgb(209, 245, 221);
 }
 
