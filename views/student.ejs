@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Greek and Roman Points</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,6 +23,15 @@
                     <h2><%= greekPoints %></h2>
                 </div>
             </div>
+        </div>
+        <div>
+            <% if(greekPoints > romanPoints) {%>
+                <h3>Greeks are winning!</h3>
+            <%} else if(romanPoints > greekPoints) {%>
+                <h3>Romans are winning!</h3>
+            <%} else {%>
+                <h3>The teams are tied!</h3>
+            <%}%>
         </div>
             <br> 
             <div id="GRimg"></div>
