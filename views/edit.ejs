@@ -25,10 +25,10 @@
 
         <form action="/addPoint" method="POST">
             <label for="pointNum">Amount of points you wish to add (or subtract using negative numbers):</label>
-            <input type="number" name="pointNum" class="txt">
+            <input type="number" name="pointNum" class="txt" required>
             
-                <label for="message">Reason for Points:</label>
-            <input type="text" name="message" class="txt">
+            <label for="message">Reason for Points:</label>
+            <input type="text" name="message" class="txt" required>
             
             <legend>Greek or roman points?:</legend>
             <label for="team">
